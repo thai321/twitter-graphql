@@ -1,12 +1,14 @@
 import faker from 'faker';
 
 import Tweet from '../models/Tweet';
+import User from '../models/User';
 
 const TWEETS_TOTAL = 10;
 
 export default async () => {
   try {
     await Tweet.remove();
+    await User.remove();
 
     await Array.from({ length: TWEETS_TOTAL }).forEach(
       async () =>
@@ -14,5 +16,7 @@ export default async () => {
           text: faker.lorem.paragraphs(1)
         })
     );
-  } catch (e) {}
+  } catch (e) {
+    throw e;
+  }
 };
