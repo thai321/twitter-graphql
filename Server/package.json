@@ -7,9 +7,13 @@
     "dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js"
   },
   "dependencies": {
+    "apollo-server-express": "^1.1.3",
     "body-parser": "^1.18.2",
     "cross-env": "^5.0.5",
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "faker": "^4.1.0",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
