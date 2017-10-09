@@ -29,18 +29,18 @@ const CardContentText = styled.Text`
   color: ${props => props.theme.SECONDARY};
 `;
 
-const text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
+// const text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
 
-function FeedCard() {
+function FeedCard({ text, user, createdAt, favoriteCount }) {
   return (
     <Root>
-      <FeedCardHeader />
+      <FeedCardHeader {...user} createdAt={createdAt} />
         <CardContentContainer >
           <CardContentText>
             {text}
           </ CardContentText>
         </ CardContentContainer>
-      <FeedCardBottom />
+      <FeedCardBottom favoriteCount={favoriteCount} />
     </Root>
   );
 }

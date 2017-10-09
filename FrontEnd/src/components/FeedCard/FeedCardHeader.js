@@ -3,6 +3,8 @@ import styled from 'styled-components/native';
 
 import { fakeAvatar } from '../../utils/constants';
 
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+
 const AVATAR_SIZE = 40;
 const AVATAR_RADIUS = AVATAR_SIZE/2;
 
@@ -59,17 +61,17 @@ const MetaText = styled.Text`
 `;
 
 
-const username = "ThaiNguyen";
-const firstName = 'Thai';
-const lastName = 'Nguyen';
-const createdAt = '1 day ago';
-const avatar = fakeAvatar;
+// const username = "ThaiNguyen";
+// const firstName = 'Thai';
+// const lastName = 'Nguyen';
+// const createdAt = '1 day ago';
+// const avatar = fakeAvatar;
 
-function FeedCardHeader() {
+function FeedCardHeader( { username, firstName, lastName, avatar, createdAt }) {
   return (
     <Root>
       <AvatarContainer>
-        <Avatar source={{ uri: avatar }} />
+        <Avatar source={{ uri: avatar || fakeAvatar }} />
       </ AvatarContainer>
 
       <MetaContainer>
@@ -85,7 +87,7 @@ function FeedCardHeader() {
 
         <MetaBottomContainer>
           <MetaText>
-            {createdAt}
+            {distanceInWordsToNow(createdAt)} ago
           </ MetaText>
         </ MetaBottomContainer>
       </ MetaContainer>
